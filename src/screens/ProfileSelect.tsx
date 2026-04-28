@@ -18,19 +18,19 @@ export function ProfileSelect({ onPickKid, onOpenParent }: Props) {
   const { t, dict } = useT()
 
   return (
-    <div className="min-h-full h-full w-full flex flex-col items-center justify-center p-8">
+    <div className="min-h-full h-full w-full flex flex-col items-center justify-start sm:justify-center px-5 py-6 sm:p-8 overflow-y-auto">
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="text-5xl sm:text-6xl font-display font-extrabold text-center mb-2"
+        className="text-3xl sm:text-6xl font-display font-extrabold text-center mb-1 sm:mb-2"
       >
         <span className="text-candy-pink">{dict.profileSelect.titlePart1}</span>{' '}
         <span className="text-candy-purple">{dict.profileSelect.titlePart2}</span>{' '}
         <span className="text-candy-yellow">⭐</span>
       </motion.h1>
-      <p className="text-lg text-slate-500 mb-12">{dict.profileSelect.subtitle}</p>
+      <p className="text-sm sm:text-lg text-slate-500 mb-6 sm:mb-12 text-center">{dict.profileSelect.subtitle}</p>
 
-      <div className="flex gap-6 sm:gap-10 flex-wrap justify-center">
+      <div className="flex gap-4 sm:gap-10 flex-wrap justify-center w-full">
         {kids.map((k, i) => (
           <motion.button
             key={k.id}
@@ -40,15 +40,15 @@ export function ProfileSelect({ onPickKid, onOpenParent }: Props) {
             whileTap={{ scale: 0.94 }}
             whileHover={{ scale: 1.04 }}
             onClick={() => onPickKid(k.id)}
-            className="bg-white rounded-3xl p-8 shadow-toy w-56 hover:shadow-2xl transition-shadow"
+            className="bg-white rounded-3xl p-5 sm:p-8 shadow-toy w-40 sm:w-56 hover:shadow-2xl transition-shadow"
           >
-            <div className="mb-3">
-              <KidAvatar value={k.avatar} className="text-8xl w-28 h-28" />
+            <div className="mb-2 sm:mb-3">
+              <KidAvatar value={k.avatar} className="text-6xl sm:text-8xl w-20 h-20 sm:w-28 sm:h-28" />
             </div>
-            <div className="text-2xl font-display font-bold mb-1">{k.name}</div>
-            <div className="text-candy-yellow font-bold text-lg">{k.totalStars} ⭐</div>
+            <div className="text-lg sm:text-2xl font-display font-bold mb-0.5 sm:mb-1">{k.name}</div>
+            <div className="text-candy-yellow font-bold text-base sm:text-lg">{k.totalStars} ⭐</div>
             {k.pendingSpins > 0 && (
-              <div className="mt-2 inline-block bg-candy-pink text-white rounded-full px-3 py-1 text-sm font-bold animate-wiggle">
+              <div className="mt-2 inline-block bg-candy-pink text-white rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm font-bold animate-wiggle">
                 {t(dict.profileSelect.spinsBadge, { count: k.pendingSpins })}
               </div>
             )}
@@ -56,7 +56,7 @@ export function ProfileSelect({ onPickKid, onOpenParent }: Props) {
         ))}
       </div>
 
-      <div className="mt-16">
+      <div className="mt-8 sm:mt-16 mb-2">
         <Button variant="gray" size="md" onClick={() => setPinOpen(true)}>
           {dict.profileSelect.parentSettings}
         </Button>

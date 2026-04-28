@@ -20,18 +20,17 @@ export function ParentSettings({ onBack }: Props) {
   const { dict } = useT()
 
   return (
-    <div className="min-h-full flex flex-col p-4 sm:p-8">
-      <div className="flex justify-between items-center mb-4">
+    <div className="min-h-full flex flex-col p-3 sm:p-8 overflow-y-auto">
+      <div className="flex items-center gap-3 mb-4">
         <Button variant="gray" size="sm" onClick={onBack}>
           {dict.common.back}
         </Button>
-        <h1 className="text-2xl sm:text-3xl font-display font-extrabold">
+        <h1 className="text-xl sm:text-3xl font-display font-extrabold flex-1 truncate">
           {dict.parent.title}
         </h1>
-        <div className="w-24" />
       </div>
 
-      <div className="flex gap-2 sm:gap-3 mb-6 justify-center flex-wrap">
+      <div className="flex gap-2 sm:gap-3 mb-4 sm:mb-6 sm:justify-center overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0">
         {([
           ['kids', dict.parent.tabs.kids],
           ['deeds', dict.parent.tabs.deeds],
@@ -41,7 +40,7 @@ export function ParentSettings({ onBack }: Props) {
           <button
             key={k}
             onClick={() => setTab(k)}
-            className={`px-4 py-2 sm:px-5 sm:py-3 rounded-2xl font-bold font-display transition-all ${
+            className={`shrink-0 px-3.5 py-2 sm:px-5 sm:py-3 rounded-2xl text-sm sm:text-base font-bold font-display transition-all ${
               tab === k
                 ? 'bg-candy-pink text-white shadow-toy-sm'
                 : 'bg-white text-slate-600'
@@ -77,20 +76,19 @@ function KidsTab() {
     <div>
       <div className="space-y-3">
         {kids.map((k) => (
-          <div key={k.id} className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-toy-sm">
-            <KidAvatar value={k.avatar} className="text-5xl w-16 h-16" />
-            <div className="flex-1">
-              <div className="text-xl font-display font-bold">{k.name}</div>
-              <div className="text-sm text-slate-500">
+          <div key={k.id} className="bg-white rounded-2xl p-3 sm:p-4 flex items-center gap-2.5 sm:gap-4 shadow-toy-sm">
+            <KidAvatar value={k.avatar} className="text-4xl sm:text-5xl w-12 h-12 sm:w-16 sm:h-16" />
+            <div className="flex-1 min-w-0">
+              <div className="text-base sm:text-xl font-display font-bold truncate">{k.name}</div>
+              <div className="text-xs sm:text-sm text-slate-500">
                 {t(dict.parent.kids.perKidStats, { stars: k.totalStars, spins: k.pendingSpins })}
               </div>
             </div>
             <Button size="sm" variant="blue" onClick={() => setEditing(k)}>
               {dict.common.edit}
             </Button>
-            <Button
-              size="sm"
-              variant="gray"
+            <IconButton
+              ariaLabel={dict.common.delete}
               onClick={() => {
                 if (kids.length <= 1) {
                   alert(dict.parent.kids.atLeastOne)
@@ -98,9 +96,7 @@ function KidsTab() {
                 }
                 if (confirm(t(dict.parent.kids.confirmDelete, { name: k.name }))) removeKid(k.id)
               }}
-            >
-              {dict.common.delete}
-            </Button>
+            />
           </div>
         ))}
       </div>
@@ -240,24 +236,21 @@ function DeedsTab() {
     <div>
       <div className="space-y-3">
         {deeds.map((d) => (
-          <div key={d.id} className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-toy-sm">
-            <div className="text-4xl">{d.icon}</div>
-            <div className="flex-1">
-              <div className="text-xl font-display font-bold">{d.name}</div>
-              <div className="text-sm text-slate-500">{t(dict.parent.deeds.spinUnit, { count: d.spinCount })}</div>
+          <div key={d.id} className="bg-white rounded-2xl p-3 sm:p-4 flex items-center gap-2.5 sm:gap-4 shadow-toy-sm">
+            <div className="text-3xl sm:text-4xl shrink-0">{d.icon}</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-base sm:text-xl font-display font-bold truncate">{d.name}</div>
+              <div className="text-xs sm:text-sm text-slate-500">{t(dict.parent.deeds.spinUnit, { count: d.spinCount })}</div>
             </div>
             <Button size="sm" variant="blue" onClick={() => setEditing(d)}>
               {dict.common.edit}
             </Button>
-            <Button
-              size="sm"
-              variant="gray"
+            <IconButton
+              ariaLabel={dict.common.delete}
               onClick={() => {
                 if (confirm(t(dict.parent.deeds.confirmDelete, { name: d.name }))) removeDeed(d.id)
               }}
-            >
-              {dict.common.delete}
-            </Button>
+            />
           </div>
         ))}
         {deeds.length === 0 && (
@@ -359,24 +352,21 @@ function RewardsTab() {
     <div>
       <div className="space-y-3">
         {sorted.map((r) => (
-          <div key={r.id} className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-toy-sm">
-            <div className="text-4xl">{r.icon}</div>
-            <div className="flex-1">
-              <div className="text-xl font-display font-bold">{r.name}</div>
-              <div className="text-sm text-slate-500">{t(dict.parent.rewards.starsCost, { count: r.starCost })}</div>
+          <div key={r.id} className="bg-white rounded-2xl p-3 sm:p-4 flex items-center gap-2.5 sm:gap-4 shadow-toy-sm">
+            <div className="text-3xl sm:text-4xl shrink-0">{r.icon}</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-base sm:text-xl font-display font-bold truncate">{r.name}</div>
+              <div className="text-xs sm:text-sm text-slate-500">{t(dict.parent.rewards.starsCost, { count: r.starCost })}</div>
             </div>
             <Button size="sm" variant="blue" onClick={() => setEditing(r)}>
               {dict.common.edit}
             </Button>
-            <Button
-              size="sm"
-              variant="gray"
+            <IconButton
+              ariaLabel={dict.common.delete}
               onClick={() => {
                 if (confirm(t(dict.parent.rewards.confirmDelete, { name: r.name }))) removeReward(r.id)
               }}
-            >
-              {dict.common.delete}
-            </Button>
+            />
           </div>
         ))}
         {sorted.length === 0 && (
@@ -482,7 +472,7 @@ function SettingsTab() {
   }
 
   return (
-    <div className="space-y-5 bg-white rounded-3xl p-6 shadow-toy-sm">
+    <div className="space-y-5 bg-white rounded-3xl p-4 sm:p-6 shadow-toy-sm">
       <div>
         <div className="font-display font-bold text-lg mb-2">{dict.parent.settings.starsPerSpinTitle}</div>
         <div className="grid grid-cols-2 gap-3">
@@ -562,6 +552,19 @@ function SettingsTab() {
 }
 
 /* --------------------------- Generic Sub-Components --------------------------- */
+
+function IconButton({ onClick, ariaLabel }: { onClick: () => void; ariaLabel: string }) {
+  return (
+    <motion.button
+      whileTap={{ scale: 0.92 }}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className="shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white border-2 border-slate-200 text-base sm:text-lg flex items-center justify-center shadow-toy-sm active:shadow-none"
+    >
+      🗑️
+    </motion.button>
+  )
+}
 
 function NumberField({
   label,

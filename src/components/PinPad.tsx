@@ -51,7 +51,7 @@ export function PinPad({ open, expectedPin, title, onSuccess, onCancel }: Props)
           onClick={onCancel}
         >
           <motion.div
-            className="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl"
+            className="bg-white rounded-3xl p-5 sm:p-8 w-full max-w-md shadow-2xl"
             initial={{ scale: 0.7, y: 30 }}
             animate={shake ? { x: [0, -10, 10, -10, 10, 0] } : { scale: 1, y: 0 }}
             exit={{ scale: 0.7, y: 30 }}
@@ -74,7 +74,7 @@ export function PinPad({ open, expectedPin, title, onSuccess, onCancel }: Props)
                   key={d}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => press(d)}
-                  className="bg-slate-100 hover:bg-slate-200 rounded-2xl py-5 text-3xl font-bold font-display"
+                  className="bg-slate-100 hover:bg-slate-200 rounded-2xl py-3.5 sm:py-5 text-2xl sm:text-3xl font-bold font-display"
                 >
                   {d}
                 </motion.button>
@@ -89,7 +89,7 @@ export function PinPad({ open, expectedPin, title, onSuccess, onCancel }: Props)
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => press('0')}
-                className="bg-slate-100 hover:bg-slate-200 rounded-2xl py-5 text-3xl font-bold font-display"
+                className="bg-slate-100 hover:bg-slate-200 rounded-2xl py-3.5 sm:py-5 text-2xl sm:text-3xl font-bold font-display"
               >
                 0
               </motion.button>
@@ -173,7 +173,7 @@ export function SetPinModal({ open, onSave, onCancel }: SetPinProps) {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl"
+            className="bg-white rounded-3xl p-5 sm:p-8 w-full max-w-md shadow-2xl"
             initial={{ scale: 0.7 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.7 }}
@@ -198,7 +198,7 @@ export function SetPinModal({ open, onSave, onCancel }: SetPinProps) {
                   key={d}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => press(d)}
-                  className="bg-slate-100 rounded-2xl py-5 text-3xl font-bold font-display"
+                  className="bg-slate-100 rounded-2xl py-3.5 sm:py-5 text-2xl sm:text-3xl font-bold font-display"
                 >
                   {d}
                 </motion.button>
@@ -209,7 +209,7 @@ export function SetPinModal({ open, onSave, onCancel }: SetPinProps) {
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => press('0')}
-                className="bg-slate-100 rounded-2xl py-5 text-3xl font-bold font-display"
+                className="bg-slate-100 rounded-2xl py-3.5 sm:py-5 text-2xl sm:text-3xl font-bold font-display"
               >
                 0
               </motion.button>

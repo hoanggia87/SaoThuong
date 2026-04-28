@@ -123,7 +123,7 @@ export function SlotMachine({ min, max, result, onSpinEnd, onSpinStart, trigger,
 
   return (
     <div
-      className={`relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] select-none ${
+      className={`relative w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] select-none ${
         clickable ? 'cursor-pointer' : disabled ? 'cursor-not-allowed' : ''
       }`}
       onClick={handleClick}
@@ -131,7 +131,7 @@ export function SlotMachine({ min, max, result, onSpinEnd, onSpinStart, trigger,
       aria-disabled={onClick ? !clickable : undefined}
     >
       {/* Pointer */}
-      <div className="absolute left-1/2 -top-2 -translate-x-1/2 z-10 text-5xl drop-shadow-lg">
+      <div className="absolute left-1/2 -top-2 -translate-x-1/2 z-10 text-4xl sm:text-5xl drop-shadow-lg">
         🔻
       </div>
 

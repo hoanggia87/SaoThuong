@@ -36,35 +36,34 @@ export function Spin({ kidId, onBack }: Props) {
   }
 
   return (
-    <div className="min-h-full flex flex-col p-6 sm:p-10">
-      <div className="flex justify-between items-center mb-6">
+    <div className="min-h-full flex flex-col p-4 sm:p-10 overflow-y-auto">
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
         <Button variant="gray" size="sm" onClick={onBack}>
           {dict.common.back}
         </Button>
-        <h1 className="text-3xl sm:text-4xl font-display font-extrabold">
+        <h1 className="text-xl sm:text-4xl font-display font-extrabold flex-1 truncate">
           {dict.spin.title}
         </h1>
-        <div className="w-24" />
       </div>
 
-      <div className="flex flex-col items-center gap-6 flex-1 justify-center">
-        <div className="flex items-center gap-6 mb-2">
-          <div className="bg-white rounded-2xl px-5 py-3 shadow-toy-sm">
-            <span className="text-slate-500 text-sm block">{dict.spin.remainingSpins}</span>
-            <span className="text-3xl font-display font-extrabold text-candy-pink">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 flex-1 justify-center">
+        <div className="flex items-center gap-3 sm:gap-6">
+          <div className="bg-white rounded-2xl px-4 py-2 sm:px-5 sm:py-3 shadow-toy-sm">
+            <span className="text-slate-500 text-xs sm:text-sm block">{dict.spin.remainingSpins}</span>
+            <span className="text-2xl sm:text-3xl font-display font-extrabold text-candy-pink">
               {kid.pendingSpins}
             </span>
           </div>
-          <div className="bg-white rounded-2xl px-5 py-3 shadow-toy-sm">
-            <span className="text-slate-500 text-sm block">{dict.spin.totalStars}</span>
-            <span className="text-3xl font-display font-extrabold text-candy-yellow">
+          <div className="bg-white rounded-2xl px-4 py-2 sm:px-5 sm:py-3 shadow-toy-sm">
+            <span className="text-slate-500 text-xs sm:text-sm block">{dict.spin.totalStars}</span>
+            <span className="text-2xl sm:text-3xl font-display font-extrabold text-candy-yellow">
               {kid.totalStars} ⭐
             </span>
           </div>
         </div>
 
         <motion.div
-          className="my-10"
+          className="my-4 sm:my-10"
           animate={kid.pendingSpins > 0 && !spinning ? { scale: [1, 1.03, 1] } : {}}
           transition={{ repeat: Infinity, duration: 1.6 }}
         >
@@ -79,7 +78,7 @@ export function Spin({ kidId, onBack }: Props) {
           />
         </motion.div>
 
-        <p className="mt-8 text-slate-500 text-base sm:text-lg font-display">
+        <p className="mt-6 sm:mt-8 text-slate-500 text-sm sm:text-lg font-display text-center">
           {spinning
             ? dict.spin.spinning
             : kid.pendingSpins > 0

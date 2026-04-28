@@ -19,8 +19,8 @@ export function KidHome({ kidId, onBack, onCheckin, onSpin, onRewards, onHistory
   if (!kid) return null
 
   return (
-    <div className="min-h-full flex flex-col p-6 sm:p-10">
-      <div className="flex justify-between items-start mb-6">
+    <div className="min-h-full flex flex-col p-4 sm:p-10 overflow-y-auto">
+      <div className="flex justify-between items-start mb-3 sm:mb-6">
         <Button variant="gray" size="sm" onClick={onBack}>
           {dict.kidHome.changeKid}
         </Button>
@@ -29,22 +29,22 @@ export function KidHome({ kidId, onBack, onCheckin, onSpin, onRewards, onHistory
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="text-center mb-8"
+        className="text-center mb-5 sm:mb-8"
       >
-        <div className="mb-2">
-          <KidAvatar value={kid.avatar} className="text-9xl w-36 h-36" />
+        <div className="mb-1 sm:mb-2">
+          <KidAvatar value={kid.avatar} className="text-7xl sm:text-9xl w-24 h-24 sm:w-36 sm:h-36" />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-display font-extrabold mb-2">{kid.name}</h1>
-        <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-toy">
-          <span className="text-3xl">⭐</span>
-          <span className="text-3xl font-display font-extrabold text-candy-yellow">
+        <h1 className="text-2xl sm:text-5xl font-display font-extrabold mb-1.5 sm:mb-2">{kid.name}</h1>
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-toy">
+          <span className="text-2xl sm:text-3xl">⭐</span>
+          <span className="text-2xl sm:text-3xl font-display font-extrabold text-candy-yellow">
             {kid.totalStars}
           </span>
-          <span className="text-xl text-slate-500 font-bold">{dict.kidHome.starsLabel}</span>
+          <span className="text-base sm:text-xl text-slate-500 font-bold">{dict.kidHome.starsLabel}</span>
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-2xl mx-auto w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 max-w-2xl mx-auto w-full pb-2">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -74,7 +74,7 @@ export function KidHome({ kidId, onBack, onCheckin, onSpin, onRewards, onHistory
             <motion.div
               animate={{ scale: [1, 1.15, 1] }}
               transition={{ repeat: Infinity, duration: 1.2 }}
-              className="absolute -top-3 -right-3 bg-candy-yellow text-amber-900 rounded-full w-12 h-12 flex items-center justify-center text-2xl font-extrabold shadow-toy-sm"
+              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-candy-yellow text-amber-900 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl sm:text-2xl font-extrabold shadow-toy-sm"
             >
               {kid.pendingSpins}
             </motion.div>

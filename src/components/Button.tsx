@@ -28,12 +28,12 @@ export function Button({
 }: Props) {
   const sizeClass =
     size === 'xl'
-      ? 'px-10 py-6 text-3xl rounded-3xl'
+      ? 'px-6 py-4 text-2xl sm:px-10 sm:py-6 sm:text-3xl rounded-2xl sm:rounded-3xl'
       : size === 'lg'
-        ? 'px-8 py-5 text-2xl rounded-3xl'
+        ? 'px-6 py-4 text-xl sm:px-8 sm:py-5 sm:text-2xl rounded-2xl sm:rounded-3xl'
         : size === 'sm'
-          ? 'px-4 py-2 text-base rounded-xl'
-          : 'px-6 py-3 text-xl rounded-2xl'
+          ? 'px-3 py-2 text-sm sm:px-4 sm:text-base rounded-xl'
+          : 'px-5 py-2.5 text-lg sm:px-6 sm:py-3 sm:text-xl rounded-2xl'
   return (
     <motion.button
       whileTap={{ scale: 0.94 }}
