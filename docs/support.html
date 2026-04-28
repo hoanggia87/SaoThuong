@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hỗ trợ — Điểm Thưởng</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, system-ui, sans-serif;
+        background: linear-gradient(180deg, #fff7ef, #ffeaf4);
+        color: #2b1b3d;
+        min-height: 100vh;
+      }
+      .container { max-width: 720px; margin: 0 auto; padding: 60px 24px; }
+      h1 { font-size: 36px; margin-bottom: 32px; }
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        margin-bottom: 20px;
+      }
+      h2 { color: #b760ff; margin-top: 24px; }
+      h2:first-child { margin-top: 0; }
+      .faq dt { font-weight: 700; margin-top: 20px; }
+      .faq dd { margin: 8px 0 16px; color: #555; line-height: 1.7; }
+      a { color: #ff6fa3; }
+      .back { display: inline-block; margin-bottom: 24px; color: #888; text-decoration: none; }
+      .email-btn {
+        display: inline-block;
+        background: linear-gradient(90deg, #ff6fa3, #b760ff);
+        color: white;
+        padding: 14px 28px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a class="back" href="index.html">← Trang chủ</a>
+      <h1>🛟 Hỗ trợ</h1>
+
+      <div class="card">
+        <h2>Liên hệ</h2>
+        <p>
+          Mọi câu hỏi, góp ý hoặc báo lỗi xin gửi email tới:
+        </p>
+        <a class="email-btn" href="mailto:tranhoanggia1987@gmail.com?subject=Điểm%20Thưởng%20-%20Hỗ%20trợ"
+          >📧 tranhoanggia1987@gmail.com</a
+        >
+        <p style="margin-top: 16px; color: #888; font-size: 14px">
+          Thường phản hồi trong vòng 1–2 ngày làm việc.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Câu hỏi thường gặp</h2>
+        <dl class="faq">
+          <dt>Tôi quên PIN phụ huynh, làm sao mở khoá?</dt>
+          <dd>
+            Hiện tại không có tính năng khôi phục PIN. Bạn cần xoá ứng dụng và
+            cài lại — lưu ý dữ liệu sẽ mất. Sắp tới sẽ thêm câu hỏi bảo mật.
+          </dd>
+
+          <dt>Dữ liệu của tôi được lưu ở đâu?</dt>
+          <dd>
+            Tất cả lưu cục bộ trên thiết bị (LocalStorage). Không gửi lên server,
+            không cần internet. Xem chi tiết tại
+            <a href="privacy.html">Privacy Policy</a>.
+          </dd>
+
+          <dt>Tôi có thể dùng app cho nhiều bé không?</dt>
+          <dd>
+            Có. Vào <em>⚙️ Cài đặt phụ huynh → 👶 Bé → + Thêm Bé</em> để tạo hồ
+            sơ riêng cho từng bé.
+          </dd>
+
+          <dt>Làm sao đổi tên / avatar / số sao của bé?</dt>
+          <dd>
+            Vào <em>⚙️ Cài đặt phụ huynh → 👶 Bé → Sửa</em> bên cạnh tên bé.
+          </dd>
+
+          <dt>Số sao mỗi lượt quay có thể thay đổi không?</dt>
+          <dd>
+            Có. Vào <em>⚙️ Cài đặt phụ huynh → ⚙️ Khác → Sao mỗi lượt quay</em>
+            để chỉnh tối thiểu / tối đa.
+          </dd>
+
+          <dt>Nếu chuyển iPad mới, dữ liệu có chuyển theo không?</dt>
+          <dd>
+            Khi bật iCloud Backup, iOS sẽ tự backup app cùng với phần còn lại
+            của thiết bị. Khi restore từ backup sang iPad mới, dữ liệu được giữ
+            lại.
+          </dd>
+
+          <dt>Có hỗ trợ tiếng Anh không?</dt>
+          <dd>
+            App hỗ trợ tiếng Việt và tiếng Anh, tự động chọn theo ngôn ngữ thiết
+            bị. Có thể đổi thủ công trong cài đặt phụ huynh.
+          </dd>
+        </dl>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px solid #eee" />
+
+      <h1 style="font-size: 28px">Support (English)</h1>
+      <div class="card">
+        <p>
+          For questions, feedback, or bug reports, please email:
+          <a href="mailto:tranhoanggia1987@gmail.com"
+            >tranhoanggia1987@gmail.com</a
+          >
+        </p>
+        <p>Typical response time: 1–2 business days.</p>
+      </div>
+    </div>
+  </body>
+</html>

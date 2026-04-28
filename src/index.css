@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;
+  font-family: 'Baloo 2', system-ui, -apple-system, sans-serif;
+  color: #2b1b3d;
+}
+
+#root {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, #ffd6e7 0%, transparent 40%),
+    radial-gradient(circle at 90% 20%, #d6e4ff 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, #fff5cc 0%, transparent 50%),
+    linear-gradient(180deg, #fff7ef 0%, #ffeaf4 100%);
+  background-attachment: fixed;
+}
+
+/* Disable double-tap zoom & text selection on tablets */
+* {
+  touch-action: manipulation;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Custom scrollbar - subtle */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
